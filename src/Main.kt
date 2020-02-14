@@ -8,18 +8,18 @@ fun main() {
     val sort4 = Sort()
     val sort5 = Sort()
     println(stopwatch {
-        sort1.bubbleSort() // Around 47 mil sec
+        sort1.bubbleSort() // Around 48 mil sec
     })
     println(stopwatch {
-        sort2.selectionSort() // Around 20 mil sec
+        sort2.selectionSort() // Around 18 mil sec
     })
     println(stopwatch {
-        sort3.insertionSort() // Around 24 mil sec
+        sort3.insertionSort() // Around 23 mil sec
     })
     println(stopwatch {
-        sort4.heapSort() //
+        sort4.heapSort() // Around 1,7 mil sec
     })
     println(stopwatch {
-        sort5.initMergeSort() //  Around 1,6 mil sec
+        sort5.initMergeSort() //  Around 2,1 mil sec
     })
 }

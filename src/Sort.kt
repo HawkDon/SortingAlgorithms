@@ -49,8 +49,40 @@ class Sort(override val shakespeareList: Array<String> = File("${Paths.get("").t
         }
     }
 
+    // Time complexity: O(n log n)
+    // Space complexity: O(1)
     override fun heapSort() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+        val n = shakespeareList.size
+
+        for (i in n / 2 - 1 downTo 0) /* O(n) */ heapify(shakespeareList, n, i) // O(log n) --> O(n log n)
+
+        for (i in n - 1 downTo 0) {                      // O(n)|
+            val temp = shakespeareList[0]             // O(1) |
+            shakespeareList[0] = shakespeareList[i]          // O(1) |--------> // O(n log n)
+            shakespeareList[i] = temp                        // O(1) |
+            heapify(shakespeareList, i, 0)                // O(log n) |
+        }
+    }
+
+    override fun heapify(arr: Array<String>, n: Int, i: Int) {
+        var largest = i
+
+        val l = 2 * i + 1
+
+        val r = 2 * i + 2
+
+
+        if (l < n && arr[l] > arr[largest]) largest = l
+
+        if (r < n && arr[r] > arr[largest]) largest = r
+
+        if (largest != i) {
+            val swap = arr[i]
+            arr[i] = arr[largest]
+            arr[largest] = swap
+            heapify(arr, n, largest)
+        }
     }
 
     fun initMergeSort() = mergeSort(shakespeareList, 0, shakespeareList.size - 1)
@@ -63,26 +95,24 @@ class Sort(override val shakespeareList: Array<String> = File("${Paths.get("").t
             return                                   // O(1)
         }                                            //
         val mid: Int = (from + to) / 2               // O(1)
-        // sort the first and the second half
         mergeSort(array, from, mid)                  // T(n/2)
         mergeSort(array, mid + 1, to)          // T(n/2)
         merge(array, from, mid, to)                  // O(n)
     }
 
     override fun merge(array: Array<String>, from: Int, mid: Int, to: Int) {
-        val n = to - from + 1 // size of the range to be merged                     //
+        val n = to - from + 1                                                       //
                                                                                          //
         val b =                                                           //
-            arrayOfNulls<String>(n) // merge both halves into a temporary array b )      //
+            arrayOfNulls<String>(n)                                                      //
                                                                                          //
-        var i1 = from // next element to consider in the first range                // O(1)
+        var i1 = from                                                               // O(1)
                                                                                          //
-        var i2 = mid + 1 // next element to consider in the second range            //
+        var i2 = mid + 1                                                            //
                                                                                          //
-        var j = 0 // next open position in b                                             //
+        var j = 0                                                                        //
 
 
-        // as long as neither i1 nor i2 past the end, move the smaller into b
         while (i1 <= mid && i2 <= to) {                                                 // O(n)
             if (array[i1].compareTo(array[i2]) < 0) {
                 b[j] = array[i1]
@@ -94,22 +124,19 @@ class Sort(override val shakespeareList: Array<String> = File("${Paths.get("").t
             j++
         }
 
-        // note that only one of the two while loops below is executed
-        // copy any remaining entries of the first half
+
         while (i1 <= mid) {                                                             // O(n)
             b[j] = array[i1]
             i1++
             j++
         }
 
-        // copy any remaining entries of the second half
         while (i2 <= to) {                                                              // O(n)
             b[j] = array[i2]
             i2++
             j++
         }
 
-        // copy back from the temporary array
         for (j in 0 until n) {                        // O(n)
             array[from + j] = b[j]!!                       // O(1)
         }

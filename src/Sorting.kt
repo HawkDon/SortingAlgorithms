@@ -13,7 +13,6 @@ interface Sorting {
      */
     fun bubbleSort()
 
-
     /*
     When to use SelectionSort:
     When we don't have additional memory
@@ -35,12 +34,16 @@ interface Sorting {
     */
     fun insertionSort()
 
-
     /*
+    When to use HeapSort:
+    When space is a concern
 
-
+    When to not use HeapSort:
+    When we need our sort to be stable
     */
     fun heapSort()
+
+    fun heapify(arr: Array<String>, n: Int, i: Int)
 
 
     /*
