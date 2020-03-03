@@ -7,7 +7,8 @@
 * Merge Sort
 
 # Test case
-I have been using a shakespeare text and big O to measure different types of popular sorting algorithms.
+We have been using a shakespeare text and big O to measure different types of popular sorting algorithms.
+
 # Test results:
 * Bubble Sort took 48,94 milliseconds
 * Selection Sort took 18,29 milliseconds

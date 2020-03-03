@@ -24,8 +24,8 @@ class Sort(override val shakespeareList: Array<String> = File("${Paths.get("").t
     override fun selectionSort() {
         for (i in shakespeareList.indices) {               // O(n)
             var min = i                                    // O(1)
-            for (j in i+1 until shakespeareList.size) {    // O(n)
-                if(shakespeareList[j] < shakespeareList[min]) { // O(1)
+            for (j in i + 1 until shakespeareList.size) {    // O(n)
+                if (shakespeareList[j] < shakespeareList[min]) { // O(1)
                     min = j                                     // O(1)
                 }
             }
@@ -43,7 +43,7 @@ class Sort(override val shakespeareList: Array<String> = File("${Paths.get("").t
                 if (shakespeareList[j - 1] > shakespeareList[j]) {   // O(1)
                     val tmp = shakespeareList[j - 1]          //
                     shakespeareList[j - 1] = shakespeareList[j]      // O(1)
-                    shakespeareList[j]= tmp                          //
+                    shakespeareList[j] = tmp                          //
                 }
             }
         }
@@ -71,7 +71,6 @@ class Sort(override val shakespeareList: Array<String> = File("${Paths.get("").t
         val l = 2 * i + 1
 
         val r = 2 * i + 2
-
 
         if (l < n && arr[l] > arr[largest]) largest = l
 
@@ -102,14 +101,14 @@ class Sort(override val shakespeareList: Array<String> = File("${Paths.get("").t
 
     override fun merge(array: Array<String>, from: Int, mid: Int, to: Int) {
         val n = to - from + 1                                                       //
-                                                                                         //
+        //
         val b =                                                           //
             arrayOfNulls<String>(n)                                                      //
-                                                                                         //
+        //
         var i1 = from                                                               // O(1)
-                                                                                         //
+        //
         var i2 = mid + 1                                                            //
-                                                                                         //
+        //
         var j = 0                                                                        //
 
 
