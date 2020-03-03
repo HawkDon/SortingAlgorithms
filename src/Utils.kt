@@ -14,3 +14,4 @@ fun stopwatch ( body : () -> Unit ): Double {
     val elapsed = System . nanoTime () - nanos
     return elapsed . toDouble ()/1000000.0
 }
+

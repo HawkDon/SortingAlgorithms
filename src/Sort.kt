@@ -4,6 +4,9 @@ import java.nio.file.Paths
 class Sort(override val shakespeareList: Array<String> = File("${Paths.get("").toAbsolutePath()}/src/shakespeare-complete-works.txt").toTypedArray()) :
     Sorting {
 
+    // Used for Trie
+    private val root: TrieNode = TrieNode()
+
     // Time complexity: O(n^2)
     // Space complexity: O(1)
     override fun bubbleSort() {
@@ -141,4 +144,22 @@ class Sort(override val shakespeareList: Array<String> = File("${Paths.get("").t
         }
     }
 
+    // Time complexity: O(n^2)
+    // Space complexity: O(n)
+    override fun treeIfy() {
+        for (word in shakespeareList) { // O(n)
+            var current: TrieNode = root // O(1)
+            for (element in word) { // O(n)
+                current = current.children
+                    .computeIfAbsent(element) { TrieNode() } // O(1)
+            }
+            current.isWord = true // O(1)
+        }
+    }
+
+}
+
+class TrieNode {
+    val children: MutableMap<Char, TrieNode> = HashMap()
+    var isWord = false
 }

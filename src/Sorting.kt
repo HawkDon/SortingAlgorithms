@@ -56,4 +56,13 @@ interface Sorting {
     */
     fun mergeSort(array: Array<String>, from: Int, to: Int)
     fun merge(array: Array<String>, from: Int, mid: Int, to: Int)
+
+    /*
+    When to use TrieSort:
+    When you need to perform search operations on strings
+
+    When to not use TrieSort:
+    When space is a concern
+    */
+    fun treeIfy()
 }
