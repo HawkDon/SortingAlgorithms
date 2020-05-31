@@ -93,29 +93,29 @@ class Sort(override val shakespeareList: Array<String> = File("${Paths.get("").t
     // Time complexity: O(n log n)
     // Space complexity: O(n)
     override fun mergeSort(array: Array<String>, from: Int, to: Int) {
-        if (from === to) {                           //
-            return                                   // O(1)
-        }                                            //
-        val mid: Int = (from + to) / 2               // O(1)
-        mergeSort(array, from, mid)                  // T(n/2)
-        mergeSort(array, mid + 1, to)          // T(n/2)
-        merge(array, from, mid, to)                  // O(n)
+        if (from === to) {                           
+            return                                   
+        }                                            
+        val mid: Int = (from + to) / 2               
+        mergeSort(array, from, mid)                  
+        mergeSort(array, mid + 1, to)          
+        merge(array, from, mid, to)                 
     }
 
     override fun merge(array: Array<String>, from: Int, mid: Int, to: Int) {
-        val n = to - from + 1                                                       //
-        //
-        val b =                                                           //
-            arrayOfNulls<String>(n)                                                      //
-        //
-        var i1 = from                                                               // O(1)
-        //
-        var i2 = mid + 1                                                            //
-        //
-        var j = 0                                                                        //
+        val n = to - from + 1                                                       
+        
+        val b =                                                           
+            arrayOfNulls<String>(n)                                                      
+        
+        var i1 = from                                                               
+        
+        var i2 = mid + 1                                                            
+        
+        var j = 0                                                                        
 
 
-        while (i1 <= mid && i2 <= to) {                                                 // O(n)
+        while (i1 <= mid && i2 <= to) {                                                 
             if (array[i1].compareTo(array[i2]) < 0) {
                 b[j] = array[i1]
                 i1++
@@ -127,20 +127,20 @@ class Sort(override val shakespeareList: Array<String> = File("${Paths.get("").t
         }
 
 
-        while (i1 <= mid) {                                                             // O(n)
+        while (i1 <= mid) {                                                             
             b[j] = array[i1]
             i1++
             j++
         }
 
-        while (i2 <= to) {                                                              // O(n)
+        while (i2 <= to) {                                                              
             b[j] = array[i2]
             i2++
             j++
         }
 
-        for (j in 0 until n) {                        // O(n)
-            array[from + j] = b[j]!!                       // O(1)
+        for (j in 0 until n) {                        
+            array[from + j] = b[j]!!                       
         }
     }
 
