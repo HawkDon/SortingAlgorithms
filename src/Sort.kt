@@ -25,16 +25,16 @@ class Sort(override val shakespeareList: Array<String> = File("${Paths.get("").t
     // Time complexity: O(n^2)
     // Space complexity: O(1)
     override fun selectionSort() {
-        for (i in shakespeareList.indices) {               // O(n)
-            var min = i                                    // O(1)
-            for (j in i + 1 until shakespeareList.size) {    // O(n)
-                if (shakespeareList[j] < shakespeareList[min]) { // O(1)
-                    min = j                                     // O(1)
+        for (i in shakespeareList.indices) {               
+            var min = i                                    
+            for (j in i + 1 until shakespeareList.size) {
+                if (shakespeareList[j] < shakespeareList[min]) { 
+                    min = j                                     
                 }
             }
-            val temp = shakespeareList[i]                //
-            shakespeareList[i] = shakespeareList[min]           // O(1)
-            shakespeareList[min] = temp                         //
+            val temp = shakespeareList[i]                
+            shakespeareList[i] = shakespeareList[min]
+            shakespeareList[min] = temp
         }
     }
 
