@@ -41,12 +41,12 @@ class Sort(override val shakespeareList: Array<String> = File("${Paths.get("").t
     // Time complexity: O(n^2)
     // Space complexity: O(1)
     override fun insertionSort() {
-        for (i in 1 until shakespeareList.size) {               // O(n)
-            for (j in i downTo 1) {                             // O(n)
-                if (shakespeareList[j - 1] > shakespeareList[j]) {   // O(1)
-                    val tmp = shakespeareList[j - 1]          //
-                    shakespeareList[j - 1] = shakespeareList[j]      // O(1)
-                    shakespeareList[j] = tmp                          //
+        for (i in 1 until shakespeareList.size) {               
+            for (j in i downTo 1) {                             
+                if (shakespeareList[j - 1] > shakespeareList[j]) {   
+                    val tmp = shakespeareList[j - 1]          
+                    shakespeareList[j - 1] = shakespeareList[j]      
+                    shakespeareList[j] = tmp                          
                 }
             }
         }
