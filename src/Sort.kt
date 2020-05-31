@@ -147,13 +147,13 @@ class Sort(override val shakespeareList: Array<String> = File("${Paths.get("").t
     // Time complexity: O(n^2)
     // Space complexity: O(n)
     override fun treeIfy() {
-        for (word in shakespeareList) { // O(n)
-            var current: TrieNode = root // O(1)
-            for (element in word) { // O(n)
+        for (word in shakespeareList) { 
+            var current: TrieNode = root
+            for (element in word) { 
                 current = current.children
-                    .computeIfAbsent(element) { TrieNode() } // O(1)
+                    .computeIfAbsent(element) { TrieNode() } 
             }
-            current.isWord = true // O(1)
+            current.isWord = true 
         }
     }
 
