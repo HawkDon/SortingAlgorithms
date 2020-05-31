@@ -58,13 +58,13 @@ class Sort(override val shakespeareList: Array<String> = File("${Paths.get("").t
 
         val n = shakespeareList.size
 
-        for (i in n / 2 - 1 downTo 0) /* O(n) */ heapify(shakespeareList, n, i) // O(log n) --> O(n log n)
+        for (i in n / 2 - 1 downTo 0) heapify(shakespeareList, n, i) 
 
-        for (i in n - 1 downTo 0) {                      // O(n)|
-            val temp = shakespeareList[0]             // O(1) |
-            shakespeareList[0] = shakespeareList[i]          // O(1) |--------> // O(n log n)
-            shakespeareList[i] = temp                        // O(1) |
-            heapify(shakespeareList, i, 0)                // O(log n) |
+        for (i in n - 1 downTo 0) {                      
+            val temp = shakespeareList[0]             
+            shakespeareList[0] = shakespeareList[i]          
+            shakespeareList[i] = temp                        
+            heapify(shakespeareList, i, 0)                
         }
     }
 
