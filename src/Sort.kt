@@ -10,13 +10,13 @@ class Sort(override val shakespeareList: Array<String> = File("${Paths.get("").t
     // Time complexity: O(n^2)
     // Space complexity: O(1)
     override fun bubbleSort() {
-        val length = shakespeareList.size                     // O(1)
-        for (i in 0 until length) {                           // O(n)
-            for (j in 0 until length - i - 1) {               // O(n)
-                if (shakespeareList[j] > shakespeareList[j + 1]) { // O(1)
-                    val word = shakespeareList[j]           //
-                    shakespeareList[j] = shakespeareList[j + 1]    // O(1)
-                    shakespeareList[j + 1] = word                  //
+        val length = shakespeareList.size                     
+        for (i in 0 until length) {                           
+            for (j in 0 until length - i - 1) {               
+                if (shakespeareList[j] > shakespeareList[j + 1]) { 
+                    val word = shakespeareList[j]           
+                    shakespeareList[j] = shakespeareList[j + 1]    
+                    shakespeareList[j + 1] = word              
                 }
             }
         }
